@@ -5,11 +5,12 @@ import './News.css';
 interface NewsProps {
   news: APieceOfNews[];
   title: string;
+  error?: string
 }
 
-const NewsComp: React.FC<NewsProps> = ({ news, title }) => {
+const NewsComp: React.FC<NewsProps> = ({ news, title, error }) => {
   if (!news || news.length === 0) {
-    return null;
+    return error ? <h2>{error}</h2> : null;
   }
 
   return(
